@@ -1,9 +1,12 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+  "cli": {
+    "packageManager": "pnpm"
+  },
   "newProjectRoot": "projects",
   "projects": {
-    "my-project": {
+    "angular-su25": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +59,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "my-project:build:production"
+              "buildTarget": "angular-su25:build:production"
             },
             "development": {
-              "buildTarget": "my-project:build:development"
+              "buildTarget": "angular-su25:build:development"
             }
           },
           "defaultConfiguration": "development"
