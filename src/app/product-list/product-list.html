@@ -1,0 +1,57 @@
+<h2>{{ title }}</h2>
+<ul>
+  <li>Sample Product</li>
+</ul>
+<div [ngClass]="{ available: isAvailable, unavailable: !isAvailable }">
+  Status: {{ isAvailable ? "Available" : "Unavailable" }}
+</div>
+<div *ngIf="isAvailable">This product is available!</div>
+
+<p>Product Name: {{ productName }}</p>
+<input [(ngModel)]="productName" placeholder="Enter product name" />
+
+<button (click)="handleClick()">Click Me</button>
+<ul>
+  <li *ngFor="let product of products">{{ product.name }}</li>
+</ul>
+
+<h2>Product List</h2>
+<div *ngIf="products.length > 0; else noProducts">
+  <ul>
+    <li *ngFor="let product of products">
+      {{ product.name }} - ${{ product.price }}
+      <span *ngIf="isAvailable" style="color: green">(Available)</span>
+    </li>
+  </ul>
+</div>
+<ng-template #noProducts>
+  <p>No products available.</p>
+</ng-template>
+
+<h2>Product List</h2>
+<input [(ngModel)]="filterText" placeholder="Filter by name" />
+<div *ngIf="filterProducts().length > 0; else noProducts">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filterProducts()">
+        <td>{{ product.id }}</td>
+        <td>{{ product.name }}</td>
+        <td>${{ product.price }}</td>
+        <td [ngStyle]="{ color: product.inStock ? 'green' : 'red' }">
+          {{ product.inStock ? "In Stock" : "Out of Stock" }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noProducts>
+  <p>No products match the filter.</p>
+</ng-template>
