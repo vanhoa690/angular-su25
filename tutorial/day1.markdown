@@ -93,6 +93,8 @@ cd my-angular-app
 pnpm install
 ```
 
+Lưu ý: Chọn No hết nếu trong quá trình cài đặt hỏi lựa chọn Yes/No
+
 Nếu gặp lỗi liên quan đến `node_modules`, thêm cấu hình:
 
 ```bash

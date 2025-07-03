@@ -76,6 +76,8 @@ Cài đặt các gói cần thiết:
 pnpm install
 ```
 
+Lưu ý: Chọn No hết nếu trong quá trình cài đặt hỏi lựa chọn Yes/No
+
 Lưu ý: Nếu gặp lỗi liên quan đến cấu trúc `node_modules`, thêm cấu hình vào `.npmrc`:
 
 ```bash
