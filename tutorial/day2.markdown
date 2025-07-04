@@ -23,7 +23,7 @@
 - **Styles**: File CSS/SCSS định dạng kiểu dáng.
 - **Metadata**: Được định nghĩa bằng decorator `@Component`, chỉ định selector, template, và styles.
 
-Ví dụ, component `app-root` là component mặc định trong dự án Angular, được khai báo trong `src/app/app.component.ts`.
+Ví dụ, component `app-root` là component mặc định trong dự án Angular, được khai báo trong `src/app/app.ts`.
 
 ## 2. Tạo và quản lý Component
 
@@ -37,20 +37,20 @@ ng generate component product-list
 
 Lệnh này tạo thư mục `src/app/product-list` với các file:
 
-- `product-list.component.ts`: Class và logic của component.
-- `product-list.component.html`: Template HTML.
-- `product-list.component.css`: Style CSS.
-- `product-list.component.spec.ts`: File test.
+- `product-list.ts`: Class và logic của component.
+- `product-list.html`: Template HTML.
+- `product-list.css`: Style CSS.
+- `product-list.spec.ts`: File test.
 
-Nội dung file `product-list.component.ts`:
+Nội dung file `product-list.ts`:
 
 ```ts
 import { Component } from "@angular/core";
 
 @Component({
   selector: "app-product-list",
-  templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.css"],
+  templateUrl: "./product-list.html",
+  styleUrls: ["./product-list.css"],
 })
 export class ProductListComponent {
   // Logic sẽ được thêm vào đây
@@ -58,22 +58,6 @@ export class ProductListComponent {
 ```
 
 ### Quản lý Component
-
-- **Khai báo**: Nếu không dùng standalone components, cần khai báo component trong `app.module.ts`:
-
-  ```ts
-  import { NgModule } from "@angular/core";
-  import { BrowserModule } from "@angular/platform-browser";
-  import { AppComponent } from "./app.component";
-  import { ProductListComponent } from "./product-list/product-list.component";
-
-  @NgModule({
-    declarations: [AppComponent, ProductListComponent],
-    imports: [BrowserModule],
-    bootstrap: [AppComponent],
-  })
-  export class AppModule {}
-  ```
 
 - **Standalone Component**: Angular 19 hỗ trợ standalone components, không cần khai báo trong module:
 
@@ -83,17 +67,17 @@ export class ProductListComponent {
   @Component({
     selector: "app-product-list",
     standalone: true,
-    templateUrl: "./product-list.component.html",
-    styleUrls: ["./product-list.component.css"],
+    templateUrl: "./product-list.html",
+    styleUrls: ["./product-list.css"],
   })
   export class ProductListComponent {}
   ```
 
-  Sau đó, import trực tiếp vào `app.component.ts` hoặc `main.ts`.
+  Sau đó, import trực tiếp vào `app.ts` hoặc `main.ts`.
 
 ### Sử dụng Component
 
-Thêm component vào template của `app.component.html`:
+Thêm component vào template của `app.html`:
 
 ```html
 <app-product-list></app-product-list>
@@ -103,7 +87,7 @@ Thêm component vào template của `app.component.html`:
 
 Template là file HTML định nghĩa giao diện của component. Angular sử dụng cú pháp đặc biệt để gắn kết dữ liệu và sử dụng directive.
 
-Ví dụ template `product-list.component.html`:
+Ví dụ template `product-list.html`:
 
 ```html
 <h2>Product List</h2>
@@ -117,15 +101,8 @@ Template có thể được viết inline trong `@Component`:
 ```ts
 @Component({
   selector: "app-product-list",
-  templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.css"],
-  template: `
-    <h2>Product List</h2>
-    <ul>
-      <li>Sample Product</li>
-    </ul>
-  `,
-  styleUrls: ["./product-list.component.css"],
+  templateUrl: "./product-list.html",
+  styleUrls: ["./product-list.css"],
 })
 export class ProductListComponent {}
 ```
@@ -141,15 +118,15 @@ Data binding là cơ chế kết nối dữ liệu giữa TypeScript và templat
 
 ### Ví dụ Data Binding
 
-Cập nhật `product-list.component.ts`:
+Cập nhật `product-list.ts`:
 
 ```ts
 import { Component } from "@angular/core";
 
 @Component({
   selector: "app-product-list",
-  templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.css"],
+  templateUrl: "./product-list.html",
+  styleUrls: ["./product-list.css"],
 })
 export class ProductListComponent {
   title = "Product List";
@@ -162,7 +139,7 @@ export class ProductListComponent {
 }
 ```
 
-Cập nhật `product-list.component.html`:
+Cập nhật `product-list.html`:
 
 ```html
 <h2>{{ title }}</h2>
@@ -179,21 +156,27 @@ Cập nhật `product-list.component.html`:
 - **Event Binding**: `(click)` gọi hàm `handleClick` khi nhấn nút.
 - **Two-way Binding**: `[(ngModel)]` đồng bộ giá trị input với `productName`.
 
-Lưu ý: Để sử dụng `ngModel`, cần import `FormsModule` trong `app.module.ts`:
+Lưu ý: Để sử dụng `ngModel`, cần import `FormsModule` trong `product-list.ts`:
 
 ```ts
-import { NgModule } from "@angular/core";
-import { BrowserModule } from "@angular/platform-browser";
+import { Component } from "@angular/core";
 import { FormsModule } from "@angular/forms";
-import { AppComponent } from "./app.component";
-import { ProductListComponent } from "./product-list/product-list.component";
 
-@NgModule({
-  declarations: [AppComponent, ProductListComponent],
-  imports: [BrowserModule, FormsModule],
-  bootstrap: [AppComponent],
+@Component({
+  selector: "app-product-list",
+  imports: [FormsModule],
+  templateUrl: "./product-list.html",
+  styleUrls: ["./product-list.css"],
 })
-export class AppModule {}
+export class ProductListComponent {
+  title = "Product List";
+  isAvailable = true;
+  productName = "";
+
+  handleClick() {
+    alert("Button clicked!");
+  }
+}
 ```
 
 ## 5. Sử dụng các Directive cơ bản
@@ -223,15 +206,15 @@ Lặp qua danh sách để render các phần tử:
 
 ### Ví dụ kết hợp
 
-Cập nhật `product-list.component.ts`:
+Cập nhật `product-list.ts`:
 
 ```ts
 import { Component } from "@angular/core";
 
 @Component({
   selector: "app-product-list",
-  templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.css"],
+  templateUrl: "./product-list.html",
+  styleUrls: ["./product-list.css"],
 })
 export class ProductListComponent {
   products = [
@@ -243,7 +226,7 @@ export class ProductListComponent {
 }
 ```
 
-Cập nhật `product-list.component.html`:
+Cập nhật `product-list.html`:
 
 ```html
 <h2>Product List</h2>
@@ -272,7 +255,7 @@ ng generate component product-list
 
 ### Bước 2: Cập nhật Component
 
-File `product-list.component.ts`:
+File `product-list.ts`:
 
 ```ts
 import { Component } from "@angular/core";
@@ -280,8 +263,8 @@ import { Component } from "@angular/core";
 @Component({
   selector: "app-product-list",
   standalone: true,
-  templateUrl: "./product-list.component.html",
-  styleUrls: ["./product-list.component.css"],
+  templateUrl: "./product-list.html",
+  styleUrls: ["./product-list.css"],
 })
 export class ProductListComponent {
   products = [
@@ -299,7 +282,7 @@ export class ProductListComponent {
 }
 ```
 
-File `product-list.component.html`:
+File `product-list.html`:
 
 ```html
 <h2>Product List</h2>
@@ -331,7 +314,7 @@ File `product-list.component.html`:
 </ng-template>
 ```
 
-File `product-list.component.css`:
+File `product-list.css`:
 
 ```css
 table {
@@ -354,27 +337,24 @@ input {
 
 ### Bước 3: Sử dụng Component
 
-Cập nhật `app.component.html`:
+Cập nhật `app.html`:
 
 ```html
+<h1>My Angular App</h1>
 <app-product-list></app-product-list>
 ```
 
-Nếu dùng standalone component, import `ProductListComponent` và `FormsModule` vào `app.component.ts`:
+Nếu dùng standalone component, import `ProductListComponent` và `FormsModule` vào `app.ts`:
 
 ```ts
 import { Component } from "@angular/core";
-import { ProductListComponent } from "./product-list/product-list.component";
-import { FormsModule } from "@angular/forms";
+import { ProductListComponent } from "./product-list/product-list";
 
 @Component({
   selector: "app-root",
   standalone: true,
-  imports: [ProductListComponent, FormsModule],
-  template: `
-    <h1>My Angular App</h1>
-    <app-product-list></app-product-list>
-  `,
+  imports: [ProductListComponent],
+  templateUrl: "./app.html",
 })
 export class AppComponent {}
 ```

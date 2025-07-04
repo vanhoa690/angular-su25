@@ -131,11 +131,11 @@ my-angular-app/
 ├── node_modules/              # Dependencies của dự án
 ├── src/                      # Thư mục mã nguồn
 │   ├── app/                  # Thư mục chứa các component và logic
-│   │   ├── app.component.ts  # Component chính
-│   │   ├── app.component.html # Template HTML
-│   │   ├── app.component.css # Style CSS/SCSS
-│   │   ├── app.component.spec.ts # File test
-│   │   ├── app.module.ts     # Module gốc (tùy chọn với standalone components)
+│   │   ├── app.ts            # Component chính
+│   │   ├── app.html          # Template HTML
+│   │   ├── app.css           # Style CSS/SCSS
+│   │   ├── app.spec.ts       # File test
+│   │   ├── app.ts            # Module gốc (tùy chọn với standalone components)
 │   ├── assets/               # Tài nguyên tĩnh (hình ảnh, font, v.v.)
 │   ├── index.html            # File HTML gốc
 │   ├── main.ts               # Điểm vào chính của ứng dụng
@@ -151,10 +151,10 @@ my-angular-app/
 
 ### Giải thích các thành phần
 
-- **app.component.ts**: Component chính, định nghĩa logic và dữ liệu.
-- **app.component.html**: Template HTML cho giao diện.
-- **app.component.css**: Style cho component.
-- **app.module.ts**: Module gốc, khai báo các component, service, và import module khác (tùy chọn nếu dùng standalone components).
+- **app.ts**: Component chính, định nghĩa logic và dữ liệu.
+- **app.html**: Template HTML cho giao diện.
+- **app.css**: Style cho component.
+- **app.ts**: Module gốc, khai báo các component, service, và import module khác (tùy chọn nếu dùng standalone components).
 - **main.ts**: Khởi động ứng dụng bằng cách bootstrap component chính.
 - **angular.json**: Cấu hình build, serve, và các tùy chọn khác của Angular CLI.
 
@@ -163,7 +163,7 @@ my-angular-app/
 Angular hỗ trợ nhiều cách quản lý style:
 
 - **CSS/SCSS trong component**: Mỗi component có file `.css` hoặc `.scss` riêng, tự động scoped để tránh xung đột.
-  Ví dụ trong `app.component.css`:
+  Ví dụ trong `app.css`:
   ```css
   h1 {
     color: blue;
@@ -226,7 +226,7 @@ Tạo component mới bằng Angular CLI:
 ng generate component hello-world
 ```
 
-File `src/app/hello-world/helloWorld.component.ts`:
+File `src/app/hello-world/helloWorld.ts`:
 
 ```ts
 import { Component } from "@angular/core";
@@ -241,7 +241,7 @@ export class HelloWorldComponent {
 }
 ```
 
-Sử dụng trong `src/app/app.component.html`:
+Sử dụng trong `src/app/app.html`:
 
 ```html
 <app-hello-world></app-hello-world>
