@@ -1,0 +1,17 @@
+<!-- Interpolation ({{ }}): -->
+
+<h1>{{ title }}</h1>
+
+<!-- Property Binding ([]) -->
+<div [ngClass]="{ available: isAvailable }">
+  Status: {{ isAvailable ? "Available" : "Unavailable" }}
+</div>
+
+<!-- Event Binding (())  -->
+<button (click)="handleClick()">Click me</button>
+
+<!-- Two-way Binding ([()]) -->
+<div>
+  <input [(ngModel)]="productName" type="text" placeholder="Product Name" />
+  <p>Product Name: {{ productName }}</p>
+</div>

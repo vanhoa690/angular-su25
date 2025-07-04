@@ -7,8 +7,6 @@ import { Component } from '@angular/core';
   styleUrl: './hello-world.css',
 })
 export class HelloWorld {
-  // no const, let, var
-  // type: :type , dua du lieu => suy dien type
   myName = 'hoadv';
   myAge = 35;
   hasPhone = true;
