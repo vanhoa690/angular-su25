@@ -12,6 +12,16 @@ export class ProductList {
   title = 'Product List';
   isAvailable = true;
   productName = 'Iphone';
+  products = [
+    {
+      id: 1,
+      name: 'Iphone',
+    },
+    {
+      id: 2,
+      name: 'Apple',
+    },
+  ];
 
   handleClick() {
     alert('Button clicked!');

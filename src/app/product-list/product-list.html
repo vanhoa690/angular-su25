@@ -15,3 +15,18 @@
   <input [(ngModel)]="productName" type="text" placeholder="Product Name" />
   <p>Product Name: {{ productName }}</p>
 </div>
+
+<!-- ngIf -->
+
+<div *ngIf="products.length; else noProducts">
+  <!-- ngFor -->
+  <ul>
+    <li *ngFor="let item of products">
+      San pham co ten {{ item.name }} voi Id la {{ item.id }}
+    </li>
+  </ul>
+</div>
+
+<ng-template #noProducts>
+  <p>No products available.</p>
+</ng-template>
