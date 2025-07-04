@@ -9,21 +9,16 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './product-list.css',
 })
 export class ProductList {
-  title = 'Product List';
-  isAvailable = true;
-  productName = 'Iphone';
   products = [
-    {
-      id: 1,
-      name: 'Iphone',
-    },
-    {
-      id: 2,
-      name: 'Apple',
-    },
+    { id: 1, name: 'Laptop', price: 1000, inStock: true },
+    { id: 2, name: 'Phone', price: 500, inStock: false },
+    { id: 3, name: 'Tablet', price: 300, inStock: true },
   ];
+  filterText = '';
 
-  handleClick() {
-    alert('Button clicked!');
+  filterProducts() {
+    return this.products.filter((product) =>
+      product.name.toLowerCase().includes(this.filterText.toLowerCase())
+    );
   }
 }
