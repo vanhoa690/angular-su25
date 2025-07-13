@@ -1,4 +1,16 @@
-<app-hello-world></app-hello-world>
-<main>
-  <app-product-list></app-product-list>
-</main>
+<!-- <input [value]="name" /> <img [src]="imageUrl" />
+<button (click)="onClick()">Click me</button>
+<input (keyup)="onKeyUp($event)" /> -->
+<!-- <app-child (customEvent)="receiveData($event)"></app-child>
+<p>Date: {{ today | date : "dd/MM/yyyy" }}</p>
+<p>Uppercase: {{ name | uppercase }}</p>
+<p>Currency: {{ price | currency : "VND" }}</p>
+<p>{{ text | reverse }}</p> -->
+<input #myInput />
+<button (click)="focusInput()">Focus Input</button>
+<app-child
+  ><div #content>
+    <p>Action</p>
+    <p>Load</p>
+  </div></app-child
+>
