@@ -2,3 +2,7 @@
 .title {
   color: green;
 }
+
+body {
+  overflow-x: hidden;
+}
