@@ -14,6 +14,7 @@ export class ProductList {
     { id: 2, name: 'Phone', price: 500, inStock: false },
     { id: 3, name: 'Tablet', price: 300, inStock: true },
   ];
+
   filterText = '';
 
   filterProducts() {

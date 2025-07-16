@@ -13,8 +13,9 @@
     <tbody>
       <tr *ngFor="let product of filterProducts()">
         <td>{{ product.id }}</td>
-        <td>{{ product.name }}</td>
-        <td>${{ product.price }}</td>
+        <!-- LAPTOP -->
+        <td>{{ product.name | uppercase }}</td>
+        <td>{{ product.price | currency : "VND" }}</td>
         <td [ngStyle]="{ color: product.inStock ? 'green' : 'red' }">
           {{ product.inStock ? "In Stock" : "Out of Stock" }}
         </td>
