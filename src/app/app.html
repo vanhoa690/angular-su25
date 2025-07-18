@@ -6,11 +6,17 @@
 <p>Uppercase: {{ name | uppercase }}</p>
 <p>Currency: {{ price | currency : "VND" }}</p>
 <p>{{ text | reverse }}</p> -->
-<input #myInput />
+<!-- <input #myInput />
 <button (click)="focusInput()">Focus Input</button>
 <app-child
   ><div #content>
     <p>Action</p>
     <p>Load</p>
   </div></app-child
->
+> -->
+<main class="d-flex">
+  <app-sidebar></app-sidebar>
+  <div class="flex-grow-1 p-3">
+    <router-outlet></router-outlet>
+  </div>
+</main>

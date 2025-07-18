@@ -42,8 +42,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of filterProducts()">
-        <td>{{ product.id }}</td>
-        <td>{{ product.name }}</td>
+        <td>
+          <a [routerLink]="['/products', product.id]">{{ product.id }}</a>
+        </td>
+        <a
+          [routerLink]="['/products', product.id]"
+          [queryParams]="{ search: product.name }"
+        >
+          {{ product.name }}
+        </a>
         <td>${{ product.price }}</td>
         <td [ngStyle]="{ color: product.inStock ? 'green' : 'red' }">
           {{ product.inStock ? "In Stock" : "Out of Stock" }}
