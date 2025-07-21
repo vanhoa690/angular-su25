@@ -25,7 +25,7 @@ export const routes: Routes = [
   //   component: UserList,
   // },
   {
-    path: 'products/:id',
+    path: 'product/:id/detail',
     component: ProductDetail,
   },
 ];

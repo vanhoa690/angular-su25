@@ -12,7 +12,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of filterProducts()">
-        <td>{{ product.id }}</td>
+        <td>
+          <!-- chen product.id trong url -->
+          <!-- /product/1/detail -->
+          <!-- lay dược :id từ url trong product detail -->
+          <!-- [routerLink] -->
+          <a [routerLink]="['/product', product.id, 'detail']">
+            {{ product.id }}
+          </a>
+        </td>
         <!-- LAPTOP -->
         <td>{{ product.name | uppercase }}</td>
         <td>{{ product.price | currency : "VND" }}</td>
