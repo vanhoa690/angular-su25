@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-detail',
@@ -13,7 +14,23 @@ export class ProductDetail {
     name: 'Laptop',
     price: 1000,
     image:
-      'https://fdn.gsmarena.com/imgroot/reviews/24/apple-iphone-16/lifestyle/-1024w2/gsmarena_001.jpg',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRw7p2GSN6YX1Pt-SgBbxQ1bwFNkP3jyBsnOA&s',
     inStock: true,
   };
+
+  productId: string | null = null;
+  search: string | null = null;
+
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.productId = this.route.snapshot.paramMap.get('id');
+    this.search = this.route.snapshot.queryParamMap.get('search');
+    // this.route.paramMap.subscribe((params) => {
+    //   this.productId = params.get('id');
+    // });
+    // this.route.queryParamMap.subscribe((params) => {
+    //   this.search = params.get('search');
+    // });
+  }
 }

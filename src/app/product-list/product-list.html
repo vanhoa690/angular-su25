@@ -12,9 +12,19 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of filterProducts()">
-        <td>{{ product.id }}</td>
         <!-- LAPTOP -->
-        <td>{{ product.name | uppercase }}</td>
+        <td>
+          <a [routerLink]="['/products', product.id]">{{ product.id }}</a>
+        </td>
+        <td>
+          <a
+            [routerLink]="['/products', product.id]"
+            [queryParams]="{ search: product.name }"
+          >
+            {{ product.name }}
+          </a>
+        </td>
+        <!-- <td>{{ product.name | uppercase }}</td> -->
         <td>{{ product.price | currency : "VND" }}</td>
         <td [ngStyle]="{ color: product.inStock ? 'green' : 'red' }">
           {{ product.inStock ? "In Stock" : "Out of Stock" }}
