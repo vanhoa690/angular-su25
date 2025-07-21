@@ -1,25 +1,19 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-product-list',
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [CommonModule, FormsModule],
   templateUrl: './product-list.html',
   styleUrl: './product-list.css',
 })
 export class ProductList {
-  title = 'Product List Page';
-  isAvailable = true;
-  productName = '';
   products = [
     { id: 1, name: 'Laptop', price: 1000, inStock: true },
     { id: 2, name: 'Phone', price: 500, inStock: false },
     { id: 3, name: 'Tablet', price: 300, inStock: true },
   ];
-  handleClick() {
-    alert('Button clicked!');
-  }
 
   filterText = '';
 

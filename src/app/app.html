@@ -1,22 +1,6 @@
-<!-- <input [value]="name" /> <img [src]="imageUrl" />
-<button (click)="onClick()">Click me</button>
-<input (keyup)="onKeyUp($event)" /> -->
-<!-- <app-child (customEvent)="receiveData($event)"></app-child>
-<p>Date: {{ today | date : "dd/MM/yyyy" }}</p>
-<p>Uppercase: {{ name | uppercase }}</p>
-<p>Currency: {{ price | currency : "VND" }}</p>
-<p>{{ text | reverse }}</p> -->
-<!-- <input #myInput />
-<button (click)="focusInput()">Focus Input</button>
-<app-child
-  ><div #content>
-    <p>Action</p>
-    <p>Load</p>
-  </div></app-child
-> -->
-<main class="d-flex">
+<div class="d-flex">
   <app-sidebar></app-sidebar>
-  <div class="flex-grow-1 p-3">
+  <div class="flex-grow-1 p-4">
     <router-outlet></router-outlet>
   </div>
-</main>
+</div>
