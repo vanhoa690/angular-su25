@@ -1,0 +1,77 @@
+<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      [(ngModel)]="product.name"
+      required
+      minlength="3"
+      #name="ngModel"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': name.invalid && name.touched }"
+    />
+    <div *ngIf="name.invalid && name.touched" class="invalid-feedback">
+      <div *ngIf="name.errors?.['required']">Name is required.</div>
+      <div *ngIf="name.errors?.['minlength']">
+        Name must be at least 3 characters long.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="image">Image URL</label>
+    <input
+      type="url"
+      id="image"
+      name="image"
+      [(ngModel)]="product.image"
+      required
+      #image="ngModel"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': image.invalid && image.touched }"
+    />
+    <div *ngIf="image.invalid && image.touched" class="invalid-feedback">
+      Image URL is required.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      [(ngModel)]="product.price"
+      required
+      min="0"
+      #price="ngModel"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': price.invalid && price.touched }"
+    />
+    <div *ngIf="price.invalid && price.touched" class="invalid-feedback">
+      <div *ngIf="price.errors?.['required']">Price is required.</div>
+      <div *ngIf="price.errors?.['min']">Price must be non-negative.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="inStock">In Stock</label>
+    <input
+      type="checkbox"
+      id="inStock"
+      name="inStock"
+      [(ngModel)]="product.inStock"
+      class="form-check-input"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="btn btn-primary"
+    [disabled]="productForm.invalid"
+  >
+    Add Product
+  </button>
+</form>

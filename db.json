@@ -1,0 +1,23 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "Laptop",
+      "price": 1000,
+      "inStock": true
+    },
+    {
+      "id": "2",
+      "name": "Phone",
+      "price": 500,
+      "inStock": false
+    },
+    {
+      "id": "5cec",
+      "name": "hoadv",
+      "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
+      "price": 2,
+      "inStock": true
+    }
+  ]
+}
