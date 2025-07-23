@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { ProductService } from '../services/product.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class ProductCreate {
 
   constructor(private productService: ProductService) {}
 
-  onSubmit(form: any) {
+  onSubmit(form: NgForm) {
     if (form.valid) {
       console.log('Form Submitted:', this.product);
       this.productService.addProduct(this.product).subscribe({
