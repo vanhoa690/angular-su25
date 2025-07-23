@@ -27,5 +27,6 @@ export const routes: Routes = [
   {
     path: 'product/:id/detail',
     component: ProductDetail,
+    canActivate: [], // Add guards if needed
   },
 ];
