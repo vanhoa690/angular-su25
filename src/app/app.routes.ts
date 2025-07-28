@@ -5,6 +5,7 @@ import { CategoryList } from './category-list/category-list';
 import { ProductCreate } from './product-create/product-create';
 import { BrandCreate } from './brand-create/brand-create';
 import { CategoryCreate } from './category-create/category-create';
+import { ProductUpdate } from './product-update/product-update';
 
 export const routes: Routes = [
   {
@@ -35,6 +36,10 @@ export const routes: Routes = [
   {
     path: 'products/create',
     component: ProductCreate,
+  },
+  {
+    path: 'products/update/:id',
+    component: ProductUpdate,
   },
   {
     path: 'brands/create',

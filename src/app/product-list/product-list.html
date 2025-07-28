@@ -13,12 +13,8 @@
     <tbody>
       <tr *ngFor="let product of filterProducts()">
         <td>
-          <!-- chen product.id trong url -->
-          <!-- /product/1/detail -->
-          <!-- lay dược :id từ url trong product detail -->
-          <!-- [routerLink] -->
-          <a [routerLink]="['/product', product.id, 'detail']">
-            {{ product.id }}
+          <a [routerLink]="['/products/update', product.id]">
+            Edit ID {{ product.id }}
           </a>
         </td>
         <!-- LAPTOP -->
