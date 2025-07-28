@@ -1,12 +1,38 @@
-<form>
+<form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
   <div class="mb-3">
     <label for="title" class="form-label">Product Title</label>
-    <input type="text" class="form-control" id="title" name="title" />
+    <input
+      type="text"
+      class="form-control"
+      formControlName="title"
+      [ngClass]="{
+        'is-invalid':
+          productForm.get('title')?.invalid && productForm.get('title')?.touched
+      }"
+    />
+    <div
+      *ngIf="
+        productForm.get('title')?.invalid && productForm.get('title')?.touched
+      "
+      class="invalid-feedback"
+    >
+      <div *ngIf="productForm.get('title')?.errors?.['required']">
+        Title is required.
+      </div>
+      <div *ngIf="productForm.get('title')?.errors?.['minlength']">
+        Title is min > 3 character.
+      </div>
+    </div>
   </div>
 
   <div class="mb-3">
     <label for="image" class="form-label">Product Image</label>
-    <input type="text" class="form-control" id="image" name="image" />
+    <input type="text" class="form-control" formControlName="image" />
+  </div>
+
+  <div class="mb-3">
+    <label for="price" class="form-label">Product Price</label>
+    <input type="number" class="form-control" formControlName="price" />
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
