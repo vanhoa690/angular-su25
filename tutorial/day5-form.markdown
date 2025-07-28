@@ -189,7 +189,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-product-create",
-  imports: [FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: "./product-create.html",
   styleUrl: "./product-create.css",
 })
