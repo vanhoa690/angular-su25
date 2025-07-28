@@ -1,20 +1,26 @@
-<form #productForm="ngForm" (ngSubmit)="onSubmit(productForm)">
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
   <div class="form-group">
-    <label for="name">Name</label>
+    <label for="name">Name ddd</label>
     <input
       type="text"
       id="name"
-      name="name"
-      [(ngModel)]="product.name"
-      required
-      minlength="3"
-      #name="ngModel"
+      formControlName="name"
       class="form-control"
-      [ngClass]="{ 'is-invalid': name.invalid && name.touched }"
+      [ngClass]="{
+        'is-invalid':
+          productForm.get('name')?.invalid && productForm.get('name')?.touched
+      }"
     />
-    <div *ngIf="name.invalid && name.touched" class="invalid-feedback">
-      <div *ngIf="name.errors?.['required']">Name is required.</div>
-      <div *ngIf="name.errors?.['minlength']">
+    <div
+      *ngIf="
+        productForm.get('name')?.invalid && productForm.get('name')?.touched
+      "
+      class="invalid-feedback"
+    >
+      <div *ngIf="productForm.get('name')?.errors?.['required']">
+        Name is required.
+      </div>
+      <div *ngIf="productForm.get('name')?.errors?.['minlength']">
         Name must be at least 3 characters long.
       </div>
     </div>
@@ -25,14 +31,19 @@
     <input
       type="url"
       id="image"
-      name="image"
-      [(ngModel)]="product.image"
-      required
-      #image="ngModel"
+      formControlName="image"
       class="form-control"
-      [ngClass]="{ 'is-invalid': image.invalid && image.touched }"
+      [ngClass]="{
+        'is-invalid':
+          productForm.get('image')?.invalid && productForm.get('image')?.touched
+      }"
     />
-    <div *ngIf="image.invalid && image.touched" class="invalid-feedback">
+    <div
+      *ngIf="
+        productForm.get('image')?.invalid && productForm.get('image')?.touched
+      "
+      class="invalid-feedback"
+    >
       Image URL is required.
     </div>
   </div>
@@ -42,17 +53,25 @@
     <input
       type="number"
       id="price"
-      name="price"
-      [(ngModel)]="product.price"
-      required
-      min="0"
-      #price="ngModel"
+      formControlName="price"
       class="form-control"
-      [ngClass]="{ 'is-invalid': price.invalid && price.touched }"
+      [ngClass]="{
+        'is-invalid':
+          productForm.get('price')?.invalid && productForm.get('price')?.touched
+      }"
     />
-    <div *ngIf="price.invalid && price.touched" class="invalid-feedback">
-      <div *ngIf="price.errors?.['required']">Price is required.</div>
-      <div *ngIf="price.errors?.['min']">Price must be non-negative.</div>
+    <div
+      *ngIf="
+        productForm.get('price')?.invalid && productForm.get('price')?.touched
+      "
+      class="invalid-feedback"
+    >
+      <div *ngIf="productForm.get('price')?.errors?.['required']">
+        Price is required.
+      </div>
+      <div *ngIf="productForm.get('price')?.errors?.['min']">
+        Price must be non-negative.
+      </div>
     </div>
   </div>
 
@@ -61,8 +80,7 @@
     <input
       type="checkbox"
       id="inStock"
-      name="inStock"
-      [(ngModel)]="product.inStock"
+      formControlName="inStock"
       class="form-check-input"
     />
   </div>
