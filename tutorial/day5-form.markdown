@@ -177,9 +177,44 @@ export class ProductFormComponent {
 
 Reactive Forms sử dụng `FormBuilder` để tạo form một cách programmatic, cung cấp khả năng kiểm soát tốt hơn và dễ dàng xử lý các form phức tạp.
 
-### Ví dụ: Form thêm sản phẩm (Reactive)
+### Ví dụ: Form thêm sản phẩm (ProductCreate)
 
-#### HTML (form-reactive.html)
+#### TypeScript (product-create.ts)
+
+```typescript
+import { Component } from "@angular/core";
+import { ReactiveFormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+
+@Component({
+  selector: "app-product-create",
+  imports: [FormsModule, CommonModule],
+  templateUrl: "./product-create.html",
+  styleUrl: "./product-create.css",
+})
+export class ProductFormComponent {
+  productForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.productForm = this.fb.group({
+      name: ["", [Validators.required, Validators.minLength(3)]],
+      image: ["", Validators.required],
+      price: [0, [Validators.required, Validators.min(0)]],
+      inStock: [false],
+    });
+  }
+
+  onSubmit() {
+    if (this.productForm.valid) {
+      console.log("Form Submitted:", this.productForm.value);
+      // Xử lý thêm sản phẩm tại đây
+    }
+  }
+}
+```
+
+#### HTML (product-create.html)
 
 ```html
 <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
@@ -264,7 +299,7 @@ Reactive Forms sử dụng `FormBuilder` để tạo form một cách programmat
 </form>
 ```
 
-#### CSS (form-reactive.css)
+#### CSS (product-create.css)
 
 ```css
 .form-group {
@@ -304,40 +339,6 @@ Reactive Forms sử dụng `FormBuilder` để tạo form một cách programmat
 .btn-primary:disabled {
   background-color: #6c757d;
   border-color: #6c757d;
-}
-```
-
-#### TypeScript (form-reactive.ts)
-
-```typescript
-import { NgModule } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-
-@NgModule({
-  imports: [BrowserModule, ReactiveFormsModule],
-})
-export class AppModule {}
-
-export class ProductFormComponent {
-  productForm: FormGroup;
-
-  constructor(private fb: FormBuilder) {
-    this.productForm = this.fb.group({
-      name: ["", [Validators.required, Validators.minLength(3)]],
-      image: ["", Validators.required],
-      price: [0, [Validators.required, Validators.min(0)]],
-      inStock: [false],
-    });
-  }
-
-  onSubmit() {
-    if (this.productForm.valid) {
-      console.log("Form Submitted:", this.productForm.value);
-      // Xử lý thêm sản phẩm tại đây
-    }
-  }
 }
 ```
 
