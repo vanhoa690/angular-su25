@@ -51,7 +51,7 @@ JSON Server sẽ chạy tại `http://localhost:3000`.
 Sử dụng Angular CLI để tạo service:
 
 ```bash
-ng generate service services/product
+ng generate service services/product.service
 ```
 
 ### Cấu hình App Config
