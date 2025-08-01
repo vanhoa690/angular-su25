@@ -5,7 +5,7 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Title</th>
         <th>Price</th>
         <th>Status</th>
       </tr>
@@ -18,7 +18,7 @@
           </a>
         </td>
         <!-- LAPTOP -->
-        <td>{{ product.name | uppercase }}</td>
+        <td>{{ product.title | uppercase }}</td>
         <td>{{ product.price | currency : "VND" }}</td>
         <td [ngStyle]="{ color: product.inStock ? 'green' : 'red' }">
           {{ product.inStock ? "In Stock" : "Out of Stock" }}

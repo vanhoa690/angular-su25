@@ -32,7 +32,7 @@ export class ProductList {
 
   filterProducts() {
     return this.products.filter((product) =>
-      product.name.toLowerCase().includes(this.filterText.toLowerCase())
+      product.title.toLowerCase().includes(this.filterText.toLowerCase())
     );
   }
 }

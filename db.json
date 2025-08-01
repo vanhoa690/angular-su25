@@ -1,7 +1,52 @@
 {
   "products": [
-    { "id": 1, "name": "Laptop", "price": 1000, "inStock": true },
-    { "id": 2, "name": "Phone", "price": 500, "inStock": false },
-    { "id": 23, "name": "Phone3", "price": 500, "inStock": false }
+    {
+      "id": "1",
+      "title": "Laptop",
+      "price": 1000,
+      "inStock": true
+    },
+    {
+      "id": "2",
+      "title": "Phone",
+      "price": 500,
+      "inStock": false
+    },
+    {
+      "id": "23",
+      "title": "Phone3",
+      "price": 500,
+      "inStock": false
+    },
+    {
+      "id": "687a",
+      "title": "123",
+      "image": "123123"
+    },
+    {
+      "id": "49af",
+      "title": "234234",
+      "image": "234234"
+    },
+    {
+      "id": "3ce5",
+      "title": "1231231",
+      "image": "312312312"
+    },
+    {
+      "id": "68fc",
+      "title": "1231231",
+      "image": "312312312"
+    },
+    {
+      "id": "de9f",
+      "title": "123123",
+      "image": "123123123"
+    },
+    {
+      "id": "9c8b",
+      "title": "3234234",
+      "image": "234234234"
+    }
   ]
 }
