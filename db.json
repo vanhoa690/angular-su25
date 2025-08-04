@@ -48,5 +48,17 @@
       "title": "3234234",
       "image": "234234234"
     }
+  ],
+  "users": [
+    {
+      "email": "email@gmail.com",
+      "password": "$2a$10$vnsNc1RcXrR.V6OrgAwqZuUvKHyO.ibiQCEIAX5B6oxwl4He2hWna",
+      "id": 1
+    },
+    {
+      "email": "emai2l@gmail.com",
+      "password": "$2a$10$cm.iW7BpxeDUsS/sWMAY5eVs4weVDVFPzEQ/aJRMy3.hfTSP7g32O",
+      "id": 2
+    }
   ]
 }

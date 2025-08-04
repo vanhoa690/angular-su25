@@ -51,7 +51,7 @@ Tạo file `db.json` trong thư mục dự án:
 Chạy server:
 
 ```bash
-json-server -m json-server-auth db.json
+json-server db.json -m ./node_modules/json-server-auth
 ```
 
 Server chạy trên `http://localhost:3000` với các endpoint:

@@ -6,8 +6,18 @@ import { ProductCreate } from './product-create/product-create';
 import { BrandCreate } from './brand-create/brand-create';
 import { CategoryCreate } from './category-create/category-create';
 import { ProductUpdate } from './product-update/product-update';
+import { Login } from './auth/login/login';
+import { Register } from './auth/register/register';
 
 export const routes: Routes = [
+  {
+    path: 'login',
+    component: Login,
+  },
+  {
+    path: 'register',
+    component: Register,
+  },
   {
     path: '',
     component: ProductList,
