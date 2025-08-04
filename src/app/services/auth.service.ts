@@ -6,6 +6,9 @@ type UserForm = {
   password: string;
 };
 
+type LoginRes = {
+  accessToken: string;
+};
 @Injectable({
   providedIn: 'root',
 })
@@ -14,5 +17,9 @@ export class AuthService {
 
   registerUser(values: UserForm) {
     return this.http.post('http://localhost:3001/register', values);
+  }
+
+  loginUser(values: UserForm) {
+    return this.http.post<LoginRes>('http://localhost:3001/login', values);
   }
 }
