@@ -34,7 +34,9 @@ export class Register {
       next: () => {
         this.toast.success('Register success');
       },
-      error: () => {},
+      error: () => {
+        this.toast.error('Register error');
+      },
     });
     // }
   }

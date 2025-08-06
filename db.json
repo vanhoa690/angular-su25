@@ -59,6 +59,11 @@
       "email": "emai2l@gmail.com",
       "password": "$2a$10$cm.iW7BpxeDUsS/sWMAY5eVs4weVDVFPzEQ/aJRMy3.hfTSP7g32O",
       "id": 2
+    },
+    {
+      "email": "emai333l@gmail.com",
+      "password": "$2a$10$z5HcKe6hr9AhbQKqs5DvAee1P/PLST35hwJedLlTxms7uNOzbYb.a",
+      "id": 3
     }
   ]
 }

@@ -34,6 +34,7 @@ export class Login {
       next: (data) => {
         this.toast.success('Login success');
         localStorage.setItem('token', data.accessToken);
+        localStorage.setItem('user', JSON.stringify(data.user));
       },
       error: () => {},
     });

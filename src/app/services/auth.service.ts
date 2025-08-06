@@ -8,6 +8,9 @@ type UserForm = {
 
 type LoginRes = {
   accessToken: string;
+  user: {
+    email: string;
+  };
 };
 @Injectable({
   providedIn: 'root',
