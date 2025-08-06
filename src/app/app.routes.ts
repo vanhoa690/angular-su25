@@ -8,6 +8,7 @@ import { CategoryCreate } from './category-create/category-create';
 import { ProductUpdate } from './product-update/product-update';
 import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
+import { authGuard } from './guards/auth-guard';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,7 @@ export const routes: Routes = [
   {
     path: 'products',
     component: ProductList,
+    canActivate: [authGuard],
   },
   {
     path: 'categories',
@@ -46,6 +48,7 @@ export const routes: Routes = [
   {
     path: 'products/create',
     component: ProductCreate,
+    canActivate: [authGuard],
   },
   {
     path: 'products/update/:id',
